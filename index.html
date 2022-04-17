@@ -627,8 +627,8 @@
 </div>
 <h2 id="case-study">Case Study</h2>
 <p>Read the case study below.</p>
-<p><img alt="casestudy1" src="images/lab1/casestudy1.png" />
-<img alt="casestudy" src="images/newbusstop.jpeg" /></p>
+<p><img src="./images/lab1/casestudy1.png" width="500">
+<img src="./images/newbusstop.jpeg" width="500"></p>
 <p>In this lab, you will plot the location of the two new bus stops in a GIS dataset.</p>
 <h2 id="11-adding-a-basemap">1.1 Adding a basemap</h2>
 <p>In this step you will create a new ArcGIS Pro and add a basemap.</p>
@@ -642,6 +642,7 @@
 </li>
 <li>
 <p>Once ArcGIS Pro launches, under the middle column titled <strong>New</strong>, click on <strong>Map</strong>.</p>
+<p><img alt="landing" src="images/lab1/landing.PNG" /></p>
 </li>
 <li>
 <p>You will be prompted to enter a name for the new project. Enter <code>Lab1</code> and click <strong>OK</strong>.</p>
@@ -654,25 +655,37 @@
 <p>Take note of where your project will be stored under the <em>Location</em> field. By default, it will be stored at <code>C:\Users\&lt;your WOG ID&gt;\Documents\ArcGIS\Projects</code>. You will need to navigate to this directory in File Explorer to access the data and files that you create.</p>
 </div>
 <p>When you first open a new map in ArcGIS Pro, you will only see a blank canvas. You will need to first add a <em>basemap</em>, which will serve as the foundation for your maps and provide context for your work.</p>
+<p><img alt="empty" src="images/lab1/emptymap.PNG" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Using ArcGIS Pro in WOG machines</p>
 <p>If you are using ArcGIS Pro from your WOG machine, do take note that you will not be able to access the basemaps provided by Esri due to firewall connectivity issues. You may however leverage on our in-house designed Ignite Colour basemap, which will be demonstrated in the following steps.</p>
 <p>If you access ArcGIS Pro from your Internet machine or the Internet-enabled Workstations in the DLab, you can use the basemaps provided by Esri.</p>
 </div>
-<p><img alt="image1" src="images/image1.png" /></p>
 <p>Next, we will add a basemap to your map.</p>
 </li>
 <li>
 <p>Under the <strong>Map</strong> Tab and the <strong>Layer</strong> subgroup, click on the <strong>Add Data</strong> drop down menu.</p>
 </li>
-<li>Select <strong>Data from Path</strong>.</li>
-<li>Enter the following path: <code>http://web.gdm1.sso1.lta.gov.sg/arcgis/rest/services/GDM/LTA_Basemap_Colour/MapServer</code></li>
-<li>Leave all other settings as default and click <strong>Add</strong>.
-    The basemap will be added to the Contents pane on the left. </li>
-<li>Right click on the layer and click on <strong>Zoom To Make Visible</strong>. The basemap shoudl appear on the map.</li>
-<li>Click on the <strong>Save</strong> icon at the top left or press <code>Ctrl + S</code> to save your project.</li>
-</ol>
+<li>
+<p>Select <strong>Data from Path</strong>.</p>
+<p><img alt="image1" src="images/image1.png" /></p>
+</li>
+<li>
+<p>Enter the following path: <code>http://web.gdm1.sso1.lta.gov.sg/arcgis/rest/services/GDM/LTA_Basemap_Colour/MapServer</code></p>
 <p><img alt="image1" src="images/image2.png" /></p>
+</li>
+<li>
+<p>Leave all other settings as default and click <strong>Add</strong>.
+    The basemap will be added to the Contents pane on the left. </p>
+</li>
+<li>
+<p>Right click on the layer and click on <strong>Zoom To Make Visible</strong>. The basemap should appear on the map.
+    <img alt="zoom" src="images/lab1/zoomtomakevisible.PNG" /></p>
+</li>
+<li>
+<p>Click on the <strong>Save</strong> icon at the top left or press <code>Ctrl + S</code> to save your project.</p>
+</li>
+</ol>
 <div class="admonition info">
 <p class="admonition-title">Accessing Ignite Colour basemap from Internet machine</p>
 <p>If you are accessing ArcGIS Pro from an Internet machine, do use this URL instead: <code>https://ignite.lta.gov.sg/arcgis/rest/services/Ignite_Basemap_Colour/MapServer</code></p>
@@ -731,10 +744,14 @@
 </li>
 <li>
 <p>Right click <code>Lab1.gdb</code> and hover on <strong>New &gt; Feature Class</strong>.</p>
+<p><img alt="createfc" src="images/lab1/createfc_0.PNG" /></p>
 </li>
-<li>Under <strong>Name</strong>, enter <code>NewBusStop</code>.</li>
+<li>
+<p>Under <strong>Name</strong>, enter <code>NewBusStop</code>.</p>
+</li>
 <li>
 <p>Under <strong>Feature Class Type</strong>, select <code>Point</code>. Click Finish.</p>
+<p><img alt="createfc" src="images/lab1/createfc_1.PNG" /></p>
 <p>The <code>NewBusStop</code> Feature Class will be added to your map. </p>
 </li>
 </ol>
@@ -752,9 +769,14 @@
 <p>The Move To tool <img alt="Move To" src="https://pro.arcgis.com/en/pro-app/latest/help/editing/GUID-724CB742-9FB5-45D4-8CF7-7D634CC89F31-web.png" /> moves selected features from the geometric center (centroid) of the selection set to a specified x,y,z location, an x,y,z distance from its current location, or a direction, 3D angular pitch, and distance. This tool is available in the Modify Features pane.</p>
 </div>
 <ol>
-<li>On the ribbon, click the Edit tab. In the Features group, click Create.
-    The Create Features panel opens on the right.</li>
-<li>Click on the <code>NewBusStop</code> feature template.</li>
+<li>
+<p>On the ribbon, click the Edit tab. In the Features group, click Create.</p>
+<p><img alt="createfc" src="images/lab1/createfeatures.PNG" /></p>
+<p>The <strong>Create Features</strong> pane opens on the right.</p>
+</li>
+<li>
+<p>Click on the <code>NewBusStop</code> feature template.</p>
+</li>
 <li>Click anywhere within the boundary of Singapore to place a point. </li>
 <li>On the ribbon, click the Edit tab. In the Features group, click <strong>Modify</strong> <img alt="Modify Features" src="https://pro.arcgis.com/en/pro-app/latest/help/editing/GUID-F1945E73-D3F0-4C4C-8A41-72C6B24482F8-web.png" />.</li>
 <li>
@@ -838,7 +860,7 @@
 </table>
 <p><img alt="FieldsView" src="https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/overview/GUID-196D6B43-4E30-4F41-A8C2-31F0A1EB56DA-web.jpg" /></p>
 <ol>
-<li>Click the last row to add a new field.</li>
+<li>Click on <strong>Click here to add a new field</strong> to add a new field.</li>
 <li>
 <p>Enter the following properties to the new field:</p>
 <ul>
