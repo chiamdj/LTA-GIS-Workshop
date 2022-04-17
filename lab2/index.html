@@ -393,22 +393,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#24-pobs" class="md-nav__link">
-    2.4 POBs
+  <a href="#24-spatial-join" class="md-nav__link">
+    2.4 Spatial Join
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#25-map-symbology" class="md-nav__link">
-    2.5 Map Symbology
+  <a href="#25-exporting-data" class="md-nav__link">
+    2.5 Exporting data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#26-spatial-join" class="md-nav__link">
-    2.6 Spatial Join
+  <a href="#26-geocoding-offences-tagged-to-pobs" class="md-nav__link">
+    2.6 Geocoding offences tagged to POBs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-map-symbology" class="md-nav__link">
+    2.7 Map Symbology
   </a>
   
 </li>
@@ -586,22 +593,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#24-pobs" class="md-nav__link">
-    2.4 POBs
+  <a href="#24-spatial-join" class="md-nav__link">
+    2.4 Spatial Join
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#25-map-symbology" class="md-nav__link">
-    2.5 Map Symbology
+  <a href="#25-exporting-data" class="md-nav__link">
+    2.5 Exporting data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#26-spatial-join" class="md-nav__link">
-    2.6 Spatial Join
+  <a href="#26-geocoding-offences-tagged-to-pobs" class="md-nav__link">
+    2.6 Geocoding offences tagged to POBs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-map-symbology" class="md-nav__link">
+    2.7 Map Symbology
   </a>
   
 </li>
@@ -656,7 +670,13 @@
 </div>
 <h2 id="21-create-a-new-project">2.1 Create a new project</h2>
 <ol>
-<li>Create a new ArcGIS Pro project titled <code>Lab2</code>. Create a new map and add the Ignite Colour Basemap.</li>
+<li>
+<p>Create a new ArcGIS Pro project titled <code>Lab2</code>. Create a new map and add the Ignite Colour Basemap.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Refer to Lab 1 if you need detailed instructions for this step.</p>
+</div>
+</li>
 <li>
 <p>In the Contents Pane, right click <strong>Folders &gt; Add Folder Connection</strong>.
     <img alt="folderconn" src="../images/lab2/folderconn_1.PNG" /></p>
@@ -665,47 +685,169 @@
 <p>Click on <strong>This PC</strong> on the left and your <code>C:\</code> drive at the right. Click <strong>OK</strong>.
     <img alt="folderconn" src="../images/lab2/folderconn.PNG" /></p>
 </li>
-<li>
-<p>Navigate to Lab 2's data folder. Add the <code>Offences_BusStop.csv</code> onto your map by dragging it from the Catalog Pane on the right to the Contents Pane on the left.</p>
-</li>
 </ol>
 <h2 id="22-creating-an-address-locator">2.2 Creating an Address Locator</h2>
 <ol>
-<li>Create a new Address Locator by using the <code>BusStop</code> feature class. </li>
+<li>
+<p>Navigate to Lab 2's data folder. Right click the <code>BusStop</code> point feature class and click on <strong>Open Table</strong>.</p>
+<p>The Attribute Table for <code>BusStop</code> opens.</p>
+</li>
+<li>
+<p>Create a <strong>Text</strong> field called <code>Country</code>.</p>
+</li>
+<li>Right click your newly created <code>Country</code> field and click on <strong>Field Calculator</strong>.</li>
+<li>
+<p>Under the <strong>Country =</strong> text field, enter <code>'SGP'</code> (with quotes). Click <strong>OK</strong>.</p>
+<p><img alt="image" src="../images/lab2/createlocator_2a.PNG" /></p>
+<p>Your <code>BusStop</code> attribute table should look like this:</p>
+<p><img alt="image" src="../images/lab2/createlocator_2b.PNG" /></p>
+</li>
+<li>
+<p>Under the <strong>Analysis</strong> Tab and <strong>Geoprocessing</strong> Group, click on <strong>Tools</strong>.
+    The Geoprocessing panel appears at the right.</p>
+</li>
+<li>
+<p>Enter <code>Create Locator</code> in the <em>Find Tool</em> text field.</p>
+<p><img alt="image" src="../images/lab2/createlocator_1.PNG" /></p>
+</li>
+<li>
+<p>Click on the <strong>Create Locator (Geocoding Tools)</strong> tool.</p>
+</li>
+<li>
+<p>Enter the following inputs:</p>
+<ul>
+<li><strong>Country or Region</strong>: '<As defined in data>'</li>
+<li>
+<p><strong>Primary Tables</strong>: Browse to the <code>BusStop</code> feature class.</p>
+<p><img alt="image" src="../images/lab2/createlocator_3.PNG" /></p>
+</li>
+<li>
+<p><strong>Role</strong>: <code>POI</code></p>
+</li>
+<li><strong>Field Mapping</strong>: Select <code>Bus Stop No</code> for <strong>Place Name</strong> and <code>Country</code> for <strong>Country Code</strong>. Leave all other fields as <code>None</code>. </li>
+<li>
+<p><strong>Language Code</strong>: <code>English</code></p>
+<p><img alt="image" src="../images/lab2/createlocator_4.PNG" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click OK to create the address locator.</p>
+<p>Your new address locator is created in your project directory. It will have a <code>.loc</code> file extension.</p>
+</li>
 </ol>
 <h2 id="23-geocoding-ameo-feedback-cases">2.3 Geocoding AMEO feedback cases</h2>
 <ol>
-<li>Geocode the tabular records <code>Offences_BusStop.csv</code>. Follow the wizard.</li>
+<li>Add the <code>offences_busstop.csv</code> onto your map by dragging it from the Catalog Pane on the right to the Contents Pane on the left.</li>
+<li>
+<p>Right click the tabular layer and click on <strong>Geocode Table</strong>.</p>
+<p><img alt="image" src="../images/lab2/geocode_1.PNG" /></p>
+<p>The <strong>GeoCode Table</strong> wizard appears.</p>
+<p><img alt="image" src="../images/lab2/geocode_2.PNG" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This wizard will only open the first time you launch ArcGIS Pro.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Important note on data structure</p>
+<p>If there are padded zeros (e.g. 04504), the zero in front will be removed when importing into ArcGIS Pro (i.e. 04504 will become 4504). You must duplicate the field containing the padded zeros to a new text field and add the padded zeros back.</p>
+</div>
+</li>
+<li>
+<p>Follow the steps provided by the wizard. </p>
+<ul>
+<li>Save your output feature class as <code>Offences_BusStop_geocoded</code> in <code>Lab2.gdb</code> in your project directory. </li>
+<li>Under <strong>Optional parameters</strong>, for <strong>Output Fields</strong> select <strong>Location Only</strong>.</li>
+</ul>
+<p>Your final result should look like the following:</p>
+<p><img alt="image" src="../images/lab2/geocode_3.PNG" /></p>
+</li>
+<li>
+<p>Click <strong>Run</strong> to execute the geocoding process. When completed, you should see the offences automatically added on the map.</p>
+</li>
 </ol>
-<h2 id="24-pobs">2.4 POBs</h2>
+<h2 id="24-spatial-join">2.4 Spatial Join</h2>
+<p>AMEO staff are also interested to know the nearest Town Council for each feedback.
+In this step, you will add a <code>NearestTownCouncil</code> field to the <code>Offences_BusStop_geocoded</code> feature class and populate it with the <strong>name of its nearest Town Council</strong>.</p>
 <ol>
-<li>Now using the POB layers, repeat Steps 2.2-2.3 to geocode the offences with locations tagged at POBs at <code>Offences_POB.csv</code>. </li>
+<li>
+<p>Add the <code>TOWN_COUNCIL_BDY_2020</code> layer to your map.</p>
+</li>
+<li>
+<p>Right click the layer in the Contents pane and click <strong>Symbology</strong>. Click on the hamburger menu at the top right and click <strong>Import symbology...</strong></p>
+<p><img alt="image" src="../images/lab2/importlyr.PNG" /></p>
+<p>The <strong>Apply Symbology from Layer</strong> geoprocessing tool opens.</p>
+</li>
+<li>
+<p>Under <strong>Symbology Layer</strong>, browse to <code>Town_Council_Bdy_2020.lyr</code> file and click on <strong>Run</strong>. Your map should look like this:</p>
+<p><img alt="image" src="../images/lab2/spatial_1.PNG" /></p>
+</li>
+<li>
+<p>In the Contents pane, right click the <code>Offences_BusStop_geocoded</code> layer. Click on <strong>Joins and Relates &gt; Spatial Join</strong>.</p>
+<p><img alt="image" src="../images/lab2/spatial_2.PNG" /></p>
+<p>The <strong>Spatial Join</strong> geoprocessing tool opens.</p>
+</li>
+<li>
+<p>In the <strong>Spatial Join</strong>, select the following:</p>
+<ul>
+<li><strong>Target Features</strong>: <code>Offences_BusStop_geocoded</code> </li>
+<li><strong>Join Features</strong>: <code>TOWN_COUNCIL_BDY_2020</code> </li>
+<li><strong>Output Feature Class</strong>: <code>Offences_BusStop_TC</code> </li>
+<li><strong>Join Operation</strong>: <code>Join one to one</code> </li>
+<li><strong>Match option</strong>: <code>Intersect</code> </li>
+<li><strong>Fields</strong>: Expand fields and leave only the fields shown below (delete all other fields).</li>
+</ul>
+<p><img alt="image" src="../images/lab2/spatial_3.PNG" /></p>
+</li>
+<li>
+<p>A new feature class <code>Offences_BusStop_TC</code> is created in your project directory. Open the Attribute Table to take a look at the data. Notice that each offence now contains a column <code>TOWN_COUNCIL</code> stating the town council boundary the offence occured in.</p>
+</li>
 </ol>
-<h2 id="25-map-symbology">2.5 Map Symbology</h2>
+<h2 id="25-exporting-data">2.5 Exporting data</h2>
+<p>In this step, you will export the dataset created into an Excel file that can be submitted to AMEO colleagues.</p>
 <ol>
-<li>Set and assign an appropriate symbol to represent the Feedback cases</li>
+<li>
+<p>Open the <strong>Geoprocessing</strong> pane and search for <strong>Table to Excel</strong>. Open the <strong>Table to Excel (Conversion Tools)</strong> tool.</p>
+<p><img alt="image" src="../images/lab2/export_1.PNG" /></p>
+</li>
+<li>
+<p>Select <code>Offences_BusStop_TC</code> as the Input Table and browse for a directory to save the output file.</p>
+</li>
 </ol>
-<!-- 1. Activate the text label to display attribute “LP No.” -->
-
-<h2 id="26-spatial-join">2.6 Spatial Join</h2>
+<h2 id="26-geocoding-offences-tagged-to-pobs">2.6 Geocoding offences tagged to POBs</h2>
 <ol>
-<li>AMEO staff are also interested to know the nearest Town Council for each feedback.
-Use the provided <code>TownCouncil</code> feature class in <code>Lab2data.gdb</code>, append a field called <code>NearestTownCouncil</code> to the <code>Offences</code> feature class and populate it with the <strong>name of its nearest Town Council</strong>.</li>
+<li>
+<p>Now using the POB layers, repeat Steps 2.2-2.5 using <code>Offences_POB.csv</code>.</p>
+</li>
+<li>
+<p>Use the <strong>Append (Data Management Tools)</strong> geoprocessing tool to merge the <code>Offences_BusStop_TC</code> and <code>Offences_POB_TC</code> feature classes into a single <code>Offences_TC</code> feature class.</p>
+</li>
+</ol>
+<h2 id="27-map-symbology">2.7 Map Symbology</h2>
+<ol>
+<li>
+<p>Identify and assign an appropriate symbology to visualise <code>Offences_TC</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Which field would be the best represented using <strong>Unique value</strong> symbology?</p>
+</div>
+</li>
 </ol>
 <h2 id="stretch-goals">Stretch goals</h2>
 <ol>
 <li>
-<p>Now using the <code>LampPost</code> feature class, repeat Steps 2.3-2.4 to geocode the offences with locations tagged at lamp posts in <code>Offences_LP.csv</code>. </p>
+<p>Now using the <code>LampPost</code> feature class, repeat Steps 2.2-2.3 to geocode the offences with locations tagged at lamp posts in <code>Offences_LP.csv</code>. </p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>As the same Lamp Post No. could be duplicated across different roads, you will need to create a field that contains <strong>both</strong> the Road Name and the Lamp Post Number in the <code>LampPost</code> feature class and <code>Offences_LP.csv</code> <em>before</em> creating the Address Locator. </p>
 </div>
 </li>
 <li>
-<p>You need to provide each Town Council with a .csv file on the locations of its offences tagged to it. Create a model in ModelBuilder to export a .csv file for each Town Council.</p>
+<p>With more offences captured every month, your AMEO colleagues have requested you to create a workflow that can repeat these steps on a monthly basis.</p>
+<p>Given a CSV file containing either a Bus Stop or a POB, create a model in ModelBuilder that will export a .csv file containing the nearest town council.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You may want to think about the workflow to do this.</p>
+<p>You may want to plan and sketch out a flow chart to visualise the workflow before building the model.</p>
 </div>
 </li>
 </ol>
