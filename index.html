@@ -176,6 +176,22 @@
   
   
     <li class="md-tabs__item">
+      <a href="lab2/" class="md-tabs__link">
+        Lab 2
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="lab3/" class="md-tabs__link">
         Lab 3
       </a>
@@ -342,6 +358,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stretch-goal" class="md-nav__link">
+    Stretch goal
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -374,12 +397,60 @@
       
       
         <label class="md-nav__link" for="__nav_2">
+          Lab 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lab 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab2/" class="md-nav__link">
+        Lab Practice #2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
           Lab 3
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lab 3" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Lab 3
         </label>
@@ -416,18 +487,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Lab 4
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lab 4" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Lab 4
         </label>
@@ -521,6 +592,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stretch-goal" class="md-nav__link">
+    Stretch goal
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -544,6 +622,8 @@
 <li>Data editing </li>
 <li>Peforming spatial analysis using geoprocessing tools</li>
 </ul>
+<p>Data required:</p>
+<p><em>None</em></p>
 </div>
 <h2 id="case-study">Case Study</h2>
 <p>Read the case study below.</p>
@@ -643,10 +723,16 @@
 <ol>
 <li>Open the Catalog Pane (if it is not already open). It should be docked on the right side of the application.</li>
 <li>Click Folders in the Contents pane. </li>
-<li>Expand <code>Lab1</code>. That folder contains all the files in your ArcGIS Pro project.
-    !!! tip
-        Before creating a Feature Class, you need to first create a geodatabase, which is essentially Esri's proprietary data format for storing feature classes. By default, a geodatabase named <code>Lab1.gdb</code> should have already been created for you.</li>
-<li>Right click <code>Lab1.gdb</code> and hover on <em>New &gt; Feature Class</em>.</li>
+<li>
+<p>Expand <code>Lab1</code>. That folder contains all the files in your ArcGIS Pro project.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before creating a Feature Class, you need to first create a geodatabase, which is essentially Esri's proprietary data format for storing feature classes. By default, a geodatabase named <code>Lab1.gdb</code> should have already been created for you.</p>
+</div>
+</li>
+<li>
+<p>Right click <code>Lab1.gdb</code> and hover on <strong>New &gt; Feature Class</strong>.</p>
+</li>
 <li>Under <strong>Name</strong>, enter <code>NewBusStop</code>.</li>
 <li>
 <p>Under <strong>Feature Class Type</strong>, select <code>Point</code>. Click Finish.</p>
@@ -798,7 +884,64 @@
 <p>If you have selected any feature or highlighted any feature in the Attribute Table, the buffer tool (or any geoprocessing tool) will only perform the analysis on the selected features.</p>
 <p>To apply the (buffer) tool on all the features in the feature class, go to the Edit Tab, under Selection group click on <strong>Clear</strong>. This will clear the existing selection of features.</p>
 </div>
-<p>Congratulations! You have completed this lab assignment. </p>
+<h2 id="stretch-goal">Stretch goal</h2>
+<div class="admonition instructions">
+<p class="admonition-title">Instructions</p>
+<p>Try completing the tasks below on your own. Should you need any help, refer to the instructions above, Google <code>ArcGIS Pro</code> followed by what you are trying to do, or consult a trainer. </p>
+</div>
+<p>You are given a shapefile <code>LampPost_Practice_1.shp</code> containing the location of lamp posts. You are tasked to perform the following:</p>
+<ol>
+<li>Convert the shapefile to a feature class</li>
+<li>Move LP No. 16 feature to the coordinate <code>1.30954262, 103.84757923</code>.</li>
+<li>
+<p>Add a new field with the following properties:</p>
+<ul>
+<li>Field Name: <code>LP_Installation_Date</code></li>
+<li>Alias Name: <code>LP Installation Date</code></li>
+<li>Data Type: <code>Date</code></li>
+</ul>
+</li>
+<li>
+<p>Using the field calculator, populate the field with the following dates based on their road name:</p>
+<table>
+<thead>
+<tr>
+<th>Road</th>
+<th>Installation Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bukit Timah Rd</td>
+<td>17/01/2022</td>
+</tr>
+<tr>
+<td>Hampshire Rd</td>
+<td>11/02/2022</td>
+</tr>
+<tr>
+<td>Kampong Java Rd</td>
+<td>09/03/2021</td>
+</tr>
+<tr>
+<td>Race Course Rd</td>
+<td>23/08/2021</td>
+</tr>
+<tr>
+<td>Tekka Ln</td>
+<td>11/11/2021</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If there are any features selected, field calculator will only populate the field of those selected features. You can use the <strong>Select features by Attribute</strong> tool to select features of a particular road.</p>
+</div>
+</li>
+<li>
+<p>Using ModelBuilder, create a simple model that creates 5m Buffer Rings for all lamp post features.</p>
+</li>
+</ol>
 
               
             </article>
@@ -813,13 +956,13 @@
       
       
         
-        <a href="lab3/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab Practice #3" rel="next">
+        <a href="lab2/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab Practice #2" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lab Practice #3
+              Lab Practice #2
             </div>
           </div>
           <div class="md-footer__button md-icon">
