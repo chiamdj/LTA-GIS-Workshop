@@ -11,5 +11,7 @@ markdown_extensions:
 nav:
   - Lab 1:
       - index.md
+  - Lab 3:
+      - lab3.md
   - Lab 4:
       - lab4.md

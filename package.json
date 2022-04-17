@@ -6,6 +6,7 @@
   "main": "pathToMain",
   "dependencies": {},
   "scripts": {
-    "build": "mkdocs build -d /Users/chiamdj/LTA-GIS-Workshop"
+    "build": "mkdocs build -d /Users/chiamdj/LTA-GIS-Workshop",
+	"start": "mkdocs serve"
   }
 }
