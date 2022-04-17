@@ -1,0 +1,11 @@
+{
+  "name": "name",
+  "description": "description",
+  "authors": "author",
+  "version": "1.0.0",
+  "main": "pathToMain",
+  "dependencies": {},
+  "scripts": {
+    "build": "mkdocs build -d /Users/chiamdj/LTA-GIS-Workshop"
+  }
+}
