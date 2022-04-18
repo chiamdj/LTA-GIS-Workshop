@@ -653,10 +653,15 @@
 </ul>
 <p>Data required:</p>
 <ul>
-<li><code>Lab2data.gdb</code></li>
-<li><code>Offences_BusStop.csv</code></li>
-<li><code>Offences_POB.csv</code></li>
-<li><code>Offences_LampPost.csv</code></li>
+<li><code>Lab2data.gdb</code> containing<ul>
+<li><code>BusStop</code> point feature class</li>
+<li><code>LampPost</code> point feature class</li>
+<li><code>PedestrianOverheadBridge</code> polygon feature class</li>
+</ul>
+</li>
+<li><code>offences_BusStop.csv</code></li>
+<li><code>offences_POB.csv</code></li>
+<li><code>offences_LampPost.csv</code></li>
 </ul>
 </div>
 <h2 id="case-study">Case Study</h2>
@@ -678,12 +683,7 @@
 </div>
 </li>
 <li>
-<p>In the Contents Pane, right click <strong>Folders &gt; Add Folder Connection</strong>.
-    <img alt="folderconn" src="../images/lab2/folderconn_1.PNG" /></p>
-</li>
-<li>
-<p>Click on <strong>This PC</strong> on the left and your <code>C:\</code> drive at the right. Click <strong>OK</strong>.
-    <img alt="folderconn" src="../images/lab2/folderconn.PNG" /></p>
+<p>Create a folder connection to access the datasets used in Lab 2.</p>
 </li>
 </ol>
 <h2 id="22-creating-an-address-locator">2.2 Creating an Address Locator</h2>
@@ -716,7 +716,7 @@
 <li>
 <p>Enter the following inputs:</p>
 <ul>
-<li><strong>Country or Region</strong>: '<As defined in data>'</li>
+<li><strong>Country or Region</strong>: <code>As defined in data</code></li>
 <li>
 <p><strong>Primary Tables</strong>: Browse to the <code>BusStop</code> feature class.</p>
 <p><img alt="image" src="../images/lab2/createlocator_3.PNG" /></p>
@@ -746,7 +746,7 @@
 <p><img alt="image" src="../images/lab2/geocode_2.PNG" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This wizard will only open the first time you launch ArcGIS Pro.</p>
+<p>This wizard will only open the first time you launch ArcGIS Pro. You can also access the geoprocessing tool by typing in <code>Geocode Addresses</code>.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Important note on data structure</p>
@@ -817,29 +817,34 @@ In this step, you will add a <code>NearestTownCouncil</code> field to the <code>
 <h2 id="26-geocoding-offences-tagged-to-pobs">2.6 Geocoding offences tagged to POBs</h2>
 <ol>
 <li>
-<p>Now using the POB layers, repeat Steps 2.2-2.5 using <code>Offences_POB.csv</code>.</p>
+<p>Now using the POB layers, repeat Steps 2.2-2.5 using <code>offences_POB.csv</code>.</p>
+<p>Save the output locator as <code>POBLocator.loc</code> and the geocoded offences as <code>Offences_POB_geocoded</code>.</p>
 </li>
 <li>
-<p>Use the <strong>Append (Data Management Tools)</strong> geoprocessing tool to merge the <code>Offences_BusStop_TC</code> and <code>Offences_POB_TC</code> feature classes into a single <code>Offences_TC</code> feature class.</p>
+<p>Use the <strong>Merge (Data Management Tools)</strong> geoprocessing tool to merge the <code>Offences_BusStop_TC</code> and <code>Offences_POB_TC</code> feature classes into a single <code>Offences_TC</code> feature class.</p>
+<p><img alt="image" src="../images/lab2/merge.png" /></p>
 </li>
 </ol>
 <h2 id="27-map-symbology">2.7 Map Symbology</h2>
 <ol>
 <li>
-<p>Identify and assign an appropriate symbology to visualise <code>Offences_TC</code>.</p>
+<p>Identify and assign an appropriate symbology to visualise the <strong>spatial distribution and density</strong> of <code>Offences_TC</code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Which field would be the best represented using <strong>Unique value</strong> symbology?</p>
+<p>If you open the Attribute Table for <code>Offences_POB_geocoded</code>, you will see that many of the points are tagged at the exact same POB. Which symbology is most suitable to emphasis the concentration of these points in the map? </p>
 </div>
 </li>
 </ol>
 <h2 id="stretch-goals">Stretch goals</h2>
 <ol>
 <li>
-<p>Now using the <code>LampPost</code> feature class, repeat Steps 2.2-2.3 to geocode the offences with locations tagged at lamp posts in <code>Offences_LP.csv</code>. </p>
+<p>Now using the <code>LampPost</code> feature class, repeat the previous steps to geocode the offences with locations tagged at lamp posts in <code>offences_lamppost.csv</code> and append them to the <code>Offences_TC</code> feature class. </p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>As the same Lamp Post No. could be duplicated across different roads, you will need to create a field that contains <strong>both</strong> the Road Name and the Lamp Post Number in the <code>LampPost</code> feature class and <code>Offences_LP.csv</code> <em>before</em> creating the Address Locator. </p>
+<ul>
+<li>As the same Lamp Post No. could be duplicated across different roads, you will need to create a field that contains <strong>both</strong> the Road Name and the Lamp Post Number for both the <code>LampPost</code> feature class and <code>Offences_lamppost.csv</code> <em>before</em> creating the Address Locator. </li>
+<li>You can use the <strong>Append (Data Management Tools)</strong> tool to append a dataset to another dataset.</li>
+</ul>
 </div>
 </li>
 <li>
