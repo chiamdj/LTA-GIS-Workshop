@@ -778,10 +778,13 @@
 <p>Click on the <code>NewBusStop</code> feature template.</p>
 </li>
 <li>Click anywhere within the boundary of Singapore to place a point. </li>
-<li>On the ribbon, click the Edit tab. In the Features group, click <strong>Modify</strong> <img alt="Modify Features" src="https://pro.arcgis.com/en/pro-app/latest/help/editing/GUID-F1945E73-D3F0-4C4C-8A41-72C6B24482F8-web.png" />.</li>
+<li>
+<p>On the ribbon, click the Edit tab. In the Features group, click <strong>Modify</strong> <img alt="Modify Features" src="https://pro.arcgis.com/en/pro-app/latest/help/editing/GUID-F1945E73-D3F0-4C4C-8A41-72C6B24482F8-web.png" />.</p>
+<p><img alt="image" src="images/lab1/modifyfeatures.png" /></p>
+</li>
 <li>
 <p>In the Modify Features pane, expand Alignment and click <strong>Move To</strong> <img alt="Move To" src="https://pro.arcgis.com/en/pro-app/latest/help/editing/GUID-724CB742-9FB5-45D4-8CF7-7D634CC89F31-web.png" />.</p>
-<p><img alt="image5" src="images/image5.png" /></p>
+<p><img alt="image" src="images/lab1/moveto.png" /></p>
 </li>
 <li>
 <p>In the tool pane, click the <strong>Select tool</strong> <img alt="Select tool" src="https://pro.arcgis.com/en/pro-app/latest/help/editing/GUID-CE6BD773-D219-41A4-A034-DDF0A63B7ED2-web.png" /> and select the point you've just created.</p>
@@ -815,8 +818,8 @@
 <p>Fields are the components that provide structure for a table. Tables form the foundation of geographic data and are the fundamental building blocks of any data model. Tables are a collection of information, such as a list of building owners, employees, or customer information. Layers in a map, such as city streets, buildings, or address points, are essentially tables that include information about the geometry and location of those features.</p>
 </div>
 <ol>
-<li>To open the fields view, first highlight the lamp post layer in the <strong>Contents pane</strong>. This displays the Feature Layer tabs.</li>
-<li>Clicking the Data tab, you will find the Data Design group containing the Fields, Subtypes, and Domains buttons. These are your tools for working with a data model.</li>
+<li>To open the fields view, first select <code>NewBusStop</code> in the <strong>Contents pane</strong>. This displays the Feature Layer tabs.</li>
+<li>Clicking the <strong>Data</strong> tab, you will find the Data Design group containing the Fields, Subtypes, and Domains buttons. These are your tools for working with a data model.</li>
 <li>
 <p>Click the <strong>Fields</strong> button to open the fields view, which displays the layer's fields in a tabular arrangement.</p>
 <p><img alt="fields" src="https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/overview/GUID-2B135029-B268-4987-84BE-7B7F1EC4B94F-web.png" /></p>
@@ -825,7 +828,6 @@
 <div class="admonition tip">
 <p class="admonition-title">Accessing the fields view</p>
 <p>You may also access the fields view by opening the Attribute Table (right click the layer in the Contents Pane and click <strong>Attribute Table</strong>) and then right clicking any column in the Attribute Table and selecting <strong>Fields</strong>.</p>
-<p><img alt="image9" src="images/image9.png" /></p>
 </div>
 <p>The  Fields view allows you to manage the fields associated with a layer or table. As shown in the examples below, you can edit a layer's or table's fields, modify their properties, delete fields, or create fields using the Fields view.</p>
 <table>
@@ -865,9 +867,13 @@
 <p>Enter the following properties to the new field:</p>
 <ul>
 <li>Field Name: <code>BUS_STOP_NUM</code></li>
-<li>Alias: <code>Bus Stop No</code></li>
+<li>Alias: <code>Bus Stop Number</code></li>
 <li>Data Type: <code>Text</code></li>
 </ul>
+<div class="admonition question">
+<p class="admonition-title">Food for thought</p>
+<p>Bus Stop Numbers exist in 5-digit numbers (e.g. 40385). Why do you think we store the numbers in text?</p>
+</div>
 </li>
 <li>
 <p>Save your changes. On the <strong>Fields</strong> tab, in the <strong>Changes</strong> group, click <strong>Save</strong>.</p>
@@ -921,7 +927,7 @@
 <p class="admonition-title">Instructions</p>
 <p>Try completing the tasks below on your own. Should you need any help, refer to the instructions above, Google <code>ArcGIS Pro</code> followed by what you are trying to do, or consult a trainer. </p>
 </div>
-<p>You are given a shapefile <code>LampPost_Practice_1.shp</code> containing the location of lamp posts. You are tasked to perform the following:</p>
+<p>You are given a shapefile <code>LampPost_Practice_1.shp</code> containing the location of lamp posts (access it via <strong>OneDrive\Daily Practices\Exercise 1</strong>). You are tasked to perform the following:</p>
 <ol>
 <li>Convert the shapefile to a feature class</li>
 </ol>
