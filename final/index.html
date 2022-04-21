@@ -471,22 +471,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#41-proximity-and-overlay-analysis" class="md-nav__link">
-    4.1 Proximity and Overlay Analysis
+  <a href="#objective" class="md-nav__link">
+    Objective
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#42-spatial-analysis" class="md-nav__link">
-    4.2 Spatial Analysis
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#challenge" class="md-nav__link">
-    Challenge
+  <a href="#assessment-criteria" class="md-nav__link">
+    Assessment Criteria
   </a>
   
 </li>
@@ -512,123 +505,53 @@
 <p>Data required (download from <code>OneDrive\FinalAssessmentData.zip</code>):</p>
 <ul>
 <li><code>Lab4data.gdb</code> containing<ul>
-<li><code>LTA_URA_WALK_CYCLE_NW_FD</code> network dataset</li>
-<li><code>PLANNEDFACILITIES_RESTRICTED</code> point feature class containing the locations of current and upcoming healthcare institutions </li>
-<li><code>PedestrianOverheadBridge</code> polygon feature class</li>
-<li><code>TAAM_ACCIDENT_LYR</code> point feature class</li>
+<li>TrainStation point feature class</li>
+<li>Household point feature class (representing the centroid of all the residential land use parcels in URA's MP19 Land Use Plan)</li>
+<li><code>LTA_URA_WALK_CYCLE_NW_FD</code> network dataset, containing a network dataset of the walking and cycling paths in Singapore</li>
 </ul>
 </li>
 </ul>
 </div>
 <h2 id="case-study">Case Study</h2>
-<p>Read the article from MOT below. <a href="https://www.mot.gov.sg/news/details/oral-reply-by-senior-parliamentary-secretary-for-transport-baey-yam-keng-to-parliamentary-question-on-the-update-for-the-number-of-lifts-installed-at-pedestrian-overhead-bridges">Source</a>.</p>
-<p><strong>Expanding Our Rail Network</strong>
-The size of our rail network will increase from about 230 km today, to about 360 km in 2030, so that it can reach more people and places. That will make the rail network density comparable to rail density in London and New York City and higher than that of Tokyo and Hong Kong today. More households will be served directly by the rail network, and about 8 in 10 households will be within a 10-minute walk of a train station.</p>
+<p>Read the article from MOT below <a href="https://www.mot.gov.sg/old-about-mot/land-transport/public-transport/trains">(source)</a>:</p>
+<blockquote>
+<p><strong>Expanding Our Rail Network</strong></p>
+<p>The size of our rail network will increase from about 230 km today, to about 360 km in 2030, so that it can reach more people and places. That will make the rail network density comparable to rail density in London and New York City and higher than that of Tokyo and Hong Kong today. More households will be served directly by the rail network, and about 8 in 10 households will be within a 10-minute walk of a train station.</p>
 <p>The rail network will be denser both within and outside the city. Almost everyone who lives or works in the city will be able to walk to an MRT station within five minutes. More areas outside the city, such as West Coast, Loyang, Jurong Industrial Estate and Punggol North, will also be connected to the rail network.</p>
 <p>The denser network will also provide more options and alternative travel routes to enhance the convenience of rail travel, and improve the network's resilience in the event of a disruption.</p>
-<h2 id="41-proximity-and-overlay-analysis">4.1 Proximity and Overlay Analysis</h2>
-<div class="admonition aim">
-<p class="admonition-title">Aim</p>
-<p>In this exercise, you will identify the Pedestrian Overhead Bridges (POBs) that will be designated for installation of lifts under Phase 3 of LTA's lift retroffiting programme.</p>
-</div>
-<ol>
-<li>Create a map called <code>Phase 3 Lift Retrofitting Programme</code>.</li>
-</ol>
-<p><img alt="image" src="../images/lab4/map.png" /></p>
+</blockquote>
+<h2 id="objective"><strong>Objective</strong></h2>
+<p>You have been tasked to identify the <strong>number of households that is within a 10-min walk of a train station</strong>. Using the network dataset given, create a <strong>Service Area Analysis Layer</strong> in ArcGIS Pro to perform the following tasks:</p>
 <ol>
 <li>
-<p>Add the Ignite Colour Basemap to the map.</p>
+<p>Identify how many out of 10 households (rounded up to the nearest whole number) is currently within a 10-min walk of a train station today.</p>
 </li>
 <li>
-<p>Add a folder connection to <code>C:\Data for Hands On\LTA\Exercise 4\Exercise4.gdb</code> and add the <code>PedestrianOverheadBridge</code> and <code>PLANNEDFACILITIES_RESTRICTED</code> feature class to the map. Study the datasets.</p>
-</li>
-<li>
-<p>Next, we will identify POBs that are within a 100, 200 and 300 walking distance from a healthcare institution.</p>
-<p>Enter the following inputs into the <strong>Make Service Area Analysis Layer</strong> geoprocessing tool and run the tool.</p>
+<p>Create a map of your result that will be presented to Senior Management. Save it as a PDF in <strong>300 dpi</strong> and email it to <code>lta_ignite_support@lta.gov.sg</code>. Make sure you include the following elements in your map:</p>
 <ul>
-<li><strong>Network Data Source</strong>: <code>LTA_URA_WALK_CYCLE_NW.gdb\LTA_URA_WALK_CYCLE_NW_FD\LTA_URA_WALK_CYCLE_NW_ND</code></li>
-<li><strong>Layer Name</strong>: Service Area</li>
-<li><strong>Travel Mode</strong>: Driving Time</li>
-<li><strong>Travel Direction</strong>: Away from facilities</li>
-<li><strong>Cutoffs</strong>: 100, 200, 300</li>
-</ul>
-<p><img alt="image" src="../images/lab4/network2.png" /></p>
-</li>
-<li>
-<p>Click on the new <strong>Service Area</strong> layer in the Contents Pane.</p>
-<p>A Tab Group <strong>Network Analyst</strong> in purple will appear. Click on the <strong>Service Area</strong> tab and click on <strong>Import Facilities</strong>.</p>
-<p><img alt="image" src="../images/lab4/import.png" />  </p>
-</li>
-<li>
-<p>The <strong>Add Locations</strong> window pop-up. Under <strong>Input Locations</strong>, select <code>PLANNEDFACILITIES_RESTRICTED</code>. Leave all other options as it is and click <strong>OK</strong>.</p>
-<p><img alt="image" src="../images/lab4/addloc.png" />  </p>
-</li>
-<li>
-<p>In the same <strong>Network Analyst</strong> Tab Group, click on <strong>Run</strong> to execute the network analyst.</p>
-<p><img alt="image" src="../images/lab4/run.png" /> </p>
-</li>
-<li>
-<p>You will see three overlapping service areas stemming out from each healthcare institution. You can add the <code>LTA_URA_WALK_CYCLE_NW</code> polyline feature class in <code>LTA_URA_WALK_CYCLE_NW.gdb</code> for better spatial context. </p>
-<p><img alt="image" src="../images/lab4/output.png" />  </p>
-</li>
-</ol>
-<div class="admonition question">
-<p class="admonition-title">Food for thought</p>
-<p>What do you think is the difference between the buffer tool and this service area tool you've just executed?</p>
-</div>
-<ol>
-<li>
-<p>Given the service areas, you now want to identify the POBs within them that does not have lifts installed in them yet. These POBs will be targeted under Phase 3 of LTA's lift retroffiting programme.</p>
-<p>Open the <strong>Spatial Join</strong> geoprocessing tool and enter the following inputs:</p>
-<ul>
-<li><strong>Target Features</strong>: <code>PedestrianOverheadBridge</code> </li>
-<li><strong>Join Features</strong>: <code>Service Area\Polygons</code> </li>
-<li><strong>Output Feature Class</strong>: <code>POB_SpatialJoin</code> </li>
-<li><strong>Join Operation</strong>: <code>Join one to one</code> </li>
-<li>
-<p>Uncheck the <strong>Keep All Target Features</strong> option.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This will ensure that only POBs that intersect in a Service Area will be added to the <code>POB_SpatialJoin</code> feature class. </p>
-</div>
-</li>
-<li>
-<p><strong>Match option</strong>: <code>Intersect</code> </p>
-</li>
-</ul>
-<p><img alt="image" src="../images/lab4/spatialjoin.png" /> </p>
-<p>Click <strong>OK</strong>. Take a look at the <strong>Lift Indicator</strong> field in the attribute table for <code>POB_SpatialJoin</code>. As there are no POBs with a value of <code>Y</code> in this tool, we can assume that all the POBs here don't have lifts installed.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You should have <strong>34</strong> features in <code>POB_SpatialJoin</code>. If not, trace back and make sure you have followed the steps accurately. </p>
-</div>
-</li>
-</ol>
-<h2 id="42-spatial-analysis">4.2 Spatial Analysis</h2>
-<div class="admonition aim">
-<p class="admonition-title">Aim</p>
-<p>In this exercise, you will study the spatiotemporal trend of traffic accidents in Singapore. </p>
-</div>
-<ol>
-<li>
-<p>Create a map called <code>Traffic Accidents</code>.</p>
-</li>
-<li>
-<p>Add the Ignite Colour Basemap to the map.</p>
-</li>
-<li>
-<p>Add a folder connection to <code>C:\Data for Hands On\LTA\Exercise 4\Exercise4.gdb</code> and add the <code>TAAM_ACCDT_LYR</code> to the map. Study the dataset.</p>
-</li>
-<li>
-<p>Open the <strong>Create Space Time Cube by Aggregating Points</strong> geoprocessing tool and enter the following inputs: </p>
-<ul>
-<li></li>
+<li>A3 size</li>
+<li>LTA logo (available in OneDrive folder)</li>
+<li>Security Classification (set as Restricted, Non-Sensitive)</li>
+<li>Title</li>
+<li>Your name and division</li>
+<li>Legend</li>
+<li>Scale bar</li>
+<li>North arrow</li>
+<li>Your answer for Part (a)</li>
 </ul>
 </li>
-<li></li>
+<li>
+<p>Export your project as an ArcGIS Pro <strong>Project Package</strong> and email it to <code>lta_ignite_support@lta.gov.sg</code>.</p>
+</li>
 </ol>
-<h2 id="challenge">Challenge</h2>
-<p>Using feedback cases, perform the same analysis to identify places with hotspots of feedback cases.</p>
+<h2 id="assessment-criteria"><strong>Assessment Criteria</strong></h2>
+<p>This assesmsent carries 50% of your final grade. </p>
+<p>Your project will be graded based on three components:</p>
+<ul>
+<li>Use of the correct geoprocessing tools</li>
+<li>Your final result for (a)</li>
+<li>Map design and cartography </li>
+</ul>
 
               
             </article>
